@@ -1,0 +1,37 @@
+{
+  "name": "appcelerator-saml",
+  "version": "0.5.0",
+  "description": "Appcelerator Arrow authentication using SAML strategy",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://git.ecd.axway.int/mvasilev/arrow_cloud_portal.git"
+  },
+  "private": true,
+  "keywords": [
+    "appcelerator",
+    "arrow",
+    "saml",
+    "authentication"
+  ],
+  "author": "Marin Vasilev",
+  "license": "MIT",
+  "dependencies": {
+    "cookies": "^0.5.1",
+    "passport": "^0.3.2",
+    "passport-saml": "^0.15.0"
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "expect": "^1.14.0",
+    "mocha": "*",
+    "requirejs": "^2.1.22",
+    "should": "*",
+    "sinon": "^1.10.2",
+    "traceur": "0.0.100",
+    "typescript": "^1.7.3"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  }
+}
