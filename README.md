@@ -8,9 +8,9 @@ The module is tested and works with the following IDps : **Onelogin, Okta, Shibb
 
 ### How the Application works
 
-*   User visits you Appcelerator app
+*   User visits the application
 *   The appcelerator-saml module checks if the user is logged in
-*   If not authenticated, the user is sent to loginUrl, which you have to set (see point 3.1.).
+*   If not authenticated, the user is redirected to loginUrl, which you have to set (see point 3.1.).
 *   From the login route the user is redirected to the Identity Provider
     *   On success - the IDp returns the user to the callbaclUrl (see point 2.1. - configuration options)
     *   On error - user is redirected to the callbackUrl as well
@@ -28,13 +28,13 @@ APIKeyAuthType: 'plugin', // Modify the default 'APIKeyAuthType', and set it to 
 APIKeyAuthPlugin: 'appcelerator-saml' 
 ```
 
-Typescript files and the tsconfig.json file, are not included with this installation.
+Typescript files and the tsconfig.json file, are not included with the node module.
 If you want to use the typescript files, clone the repo.
 
 ## 2.  Configuration
  Copy ``conf/example.config.js`` to you project's configuration folder, and rename the file to : 
  ``appc.saml.default.js``.
- ### 2.1.   Configuration options
+### 2.1.   Configuration options
  Set  the **privateCertLocation** and **certLocation** if you are going to use private key and certificate, to authenticate against the server.
  
  ```sh
@@ -107,7 +107,7 @@ If you want to use the typescript files, clone the repo.
 
  For more infromation on the passport object, check the documentation of the [passport-saml extension](https://github.com/bergie/passport-saml).
 
- ## 3.  Usage
+## 3.  Usage
  
  Once set, appcelerator-saml checks if current user is authenticated, for all routes (except for the loginUrl). You can add exceptions ( routes / endpoints which unauthorized users can visit ). Just add paths to the `allowedPaths` Array. Don't forget to add loginUrl to it as well.
  
