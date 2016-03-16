@@ -11,7 +11,7 @@ export class Dispatcher {
 
     public server;
     public config: ConfigurationObject;
-    
+
     /**
      * Most of the files, that are instantiated by this file
      * require an instance of Arrow server and the configuration
@@ -21,8 +21,8 @@ export class Dispatcher {
         this.server = server;
         this.config = config;
     }
-       
-    
+
+
     /**
      * Get instance of selected class
      */
@@ -32,11 +32,9 @@ export class Dispatcher {
             case 'Authentication':
                 classInstance = new Authentication(this.server, this.config)
                 break;
-
-            default:
-                classInstance = {};
-                break;
         }
+        if (classInstance === undefined)
+            throw "Authentication method doesn't exist.";
         return classInstance;
     }
 
@@ -67,11 +65,9 @@ export class Dispatcher {
         }
         if (!config) {
             throw new Error('Please provide a valid configuration object for the appcelerator-saml module.');
-
         }
         this.config = config;
         return config;
     }
 
 }
- 

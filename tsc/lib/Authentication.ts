@@ -27,7 +27,7 @@ export class Authentication {
         }
 
     }
-    
+
     /**
      * Return passport
      */
@@ -39,16 +39,16 @@ export class Authentication {
         this.server.app.use(this._passport.initialize());
         this.server.app.use(this._passport.session());
     }
-    
+
     /**
      * Sets the configuration object
      * If configuration data is not passed, sets this.config to a new ConfigurationObject
      */
-    public setConfig(config : ConfigurationObject) {
+    public setConfig(config: ConfigurationObject) {
         if (config) {
             this.config = config;
         } else {
-            this.config = new ConfigurationObject;
+            this.config = new ConfigurationObject();
         }
     }
 
@@ -64,9 +64,12 @@ export class Authentication {
         passp.deserializeUser(function(user, done) {
             done(null, user);
         });
-        
+
         //Check if private key should be used
         if (this.config.passport.saml.privateCert && this.config.passport.saml.cert) {
+            if (!fs.readFileSync(this.config.privateCertLocation, 'utf-8')) {
+                throw "Specified certificate file was not found";
+            }
             this.config.passport.saml.privateCert = fs.readFileSync(this.config.privateCertLocation, 'utf-8');
             this.config.passport.saml.cert = fs.readFileSync(this.config.certLocation, 'utf-8');
         }
@@ -80,7 +83,7 @@ export class Authentication {
                 var resultObject = resultConfig.createResultObject(profile, configuration);
                 return done(null, resultObject);
             });
-        
+
         if (this.config.passport.saml.privateCert) {
             samlStartegy.generateServiceProviderMetadata(this.config.passport.saml.privateCert);
         }

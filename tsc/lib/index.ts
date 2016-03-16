@@ -62,11 +62,10 @@ export class SamlAuth {
     private _authenticateRoute(request) {
         let paths: Array<string>;
         let should_pass: boolean = false;
-        
         //If no paths are set, only the login url is added to the exception list
         if (!this.config.allowedPaths) {
             if (!this.config.loginUrl)
-                throw new Error("You should pass a loginUrl in the module configuration");
+                throw "You should set the 'loginUrl' in the module configuration";
             paths = new Array(this.config.loginUrl);
         } else {
             paths = this.config.allowedPaths;

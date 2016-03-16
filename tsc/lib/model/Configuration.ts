@@ -22,7 +22,7 @@ export class ConfigurationObject {
      * 
      */
     public createResultObject(profile, configuration?: ConfigurationObject) {
-        let result: Object = new Object;
+        let result: Object = {};
         let resultObject: Object;
 
         if (configuration && configuration.resultObject) {
