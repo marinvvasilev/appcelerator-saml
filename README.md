@@ -1,5 +1,5 @@
 # Appcelerator SAML
-Appcelerator SAML provides [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0) Autehntication method for Appcelerator Arrow driven applications. 
+Appcelerator SAML provides [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0) Autehntication for Appcelerator Arrow driven applications. 
 The module is tested and works with the following IDps : **Onelogin, Okta, Shibboleth, SimpleSAMLphp**. 
 
 ### The module uses
