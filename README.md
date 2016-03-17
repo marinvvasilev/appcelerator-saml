@@ -6,7 +6,7 @@ The module is tested and works with the following IDps : **Onelogin, Okta, Shibb
 * node [passport](http://passportjs.org/)
 * node [passport-saml](https://github.com/bergie/passport-saml)
 
-### How the Application works
+### Authentication flow
 
 *   User visits the application
 *   The appcelerator-saml module checks if the user is logged in
