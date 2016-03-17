@@ -28,8 +28,6 @@ module.exports = {
     SamlAuth : {
         loginUrl: '/saml/login',
         callbackUrl: '/saml/response/callback',
-        privateCertLocation: './pk/login.axway.com.pem',
-        certLocation: './pk/login.axway.com.crt',
         allowedPaths: ['/youFoo'],
         resultObject: {
             firstName: 'firstname',
@@ -42,7 +40,7 @@ module.exports = {
             strategy: 'saml',
             saml: {
                 callbackUrl: 'https://localhost:8080/response/callback',
-                entryPoint: 'https://login.axway.com/saml2/idp/SSOService.php',
+                entryPoint: 'https://app.onelogin.com/trust/saml2/http-post/sso/371755',
                 issuer: 'cloud:passport:saml',
                 authnContext: 'http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows',
                 logoutCallbackUrl: 'https://localhost:8080/saml/logout'//,

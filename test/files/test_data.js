@@ -10,4 +10,4 @@ module.exports = {
         expectedStatusCode: 200,
         expectedNameIDStartsWith: 'ploer',
         mockDate: '2016-03-17T10:34:52.733Z'
-      }
+      };
