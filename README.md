@@ -174,7 +174,7 @@ The authentication information is accessable trough the Arrow's Request object
     request.user // returns user information object ( the one you set with resultObject )
 
 Let's create a api endpoint that returns information on currently logged user.
-
+```sh
     var Arrow = require('arrow');
     
     var UserAPI = Arrow.API.extend({
@@ -196,6 +196,31 @@ Let's create a api endpoint that returns information on currently logged user.
     }
     
     module.exports = UserAPI;
+    
+
+```
+
+
+    
+### 3.4.    Setting up a logout route
+```sh
+var Arrow = require('arrow');
+
+var LogoutRoute = Arrow.Router.extend({
+    name: 'logout',
+    path: '/saml/logout',
+    method: 'GET',
+    description: 'Application logout route',
+    action: function (request, response) {
+        request.logout();
+        response.redirect('/welcome');
+    }
+
+});
+
+
+module.exports = LogoutRoute;
+```
 
 
 
