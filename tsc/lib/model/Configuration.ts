@@ -1,4 +1,4 @@
-import {PassportConfigurationObject} from './PassportConfiguration';
+import { PassportConfigurationObject } from './PassportConfiguration';
 
 
 export class ConfigurationObject {
@@ -7,7 +7,7 @@ export class ConfigurationObject {
     //Allowed Paths
     public allowedPaths: Array<string>;
     //Location of the .pem file
-    privateCertLocation: string; 
+    privateCertLocation: string;
     //Location of the .cert file
     certLocation: string;
     //Expected Result
@@ -50,7 +50,10 @@ export class ConfigurationObject {
                 lastName: profile.sn
             };
         }
-
+        result['saml'] = {
+            nameID: profile.nameID,
+            nameIDFormat: profile.nameIDFormat
+        };
         return result;
     }
 
