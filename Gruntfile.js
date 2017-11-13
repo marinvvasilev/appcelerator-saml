@@ -19,7 +19,11 @@ module.exports = function(grunt) {
         },
         jshint: {
             options: {
-                jshintrc: true,
+                node: true,
+				globals: {
+					'before': false,
+					'after': false
+				}
             },
             src: ['lib/**/*.js', 'test/**/*.js']
         },
