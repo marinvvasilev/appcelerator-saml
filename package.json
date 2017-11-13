@@ -23,7 +23,7 @@
         "semver": "^5.0.3",
         "cookies": "^0.5.1",
         "passport": "^0.3.2",
-        "passport-saml": "^0.15.0"
+        "passport-saml": "^0.31.0"
     },
     "devDependencies": {
         "arrow": "^*",
