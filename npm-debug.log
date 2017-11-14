@@ -1,0 +1,93 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/marinvasilev/Projects/apibuilder/appcelerator-saml',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/marinvasilev/.npm/appcelerator-saml/0.6.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/marinvasilev/.npm correctMkdir not in flight; initializing
+10 info lifecycle appcelerator-saml@0.6.0~prepublish: appcelerator-saml@0.6.0
+11 silly lifecycle appcelerator-saml@0.6.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/marinvasilev/.npm/appcelerator-saml/0.6.0/package.tgz',
+12 verbose tar pack   '/Users/marinvasilev/Projects/apibuilder/appcelerator-saml' ]
+13 verbose tarball /Users/marinvasilev/.npm/appcelerator-saml/0.6.0/package.tgz
+14 verbose folder /Users/marinvasilev/Projects/apibuilder/appcelerator-saml
+15 verbose addLocalTarball adding from inside cache /Users/marinvasilev/.npm/appcelerator-saml/0.6.0/package.tgz
+16 verbose correctMkdir /Users/marinvasilev/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd appcelerator-saml@0.6.0
+18 verbose afterAdd /Users/marinvasilev/.npm/appcelerator-saml/0.6.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/marinvasilev/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/marinvasilev/.npm/appcelerator-saml/0.6.0/package/package.json written
+21 silly publish { name: 'appcelerator-saml',
+21 silly publish   version: '0.6.0',
+21 silly publish   description: 'Appcelerator Arrow authentication using SAML strategy',
+21 silly publish   main: 'index.js',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/marinvvasilev/appcelerator-saml.git' },
+21 silly publish   private: true,
+21 silly publish   keywords: [ 'appcelerator', 'apibuilder', 'arrow', 'saml', 'authentication' ],
+21 silly publish   author: { name: 'Marin Vasilev' },
+21 silly publish   license: 'Apache-2.0',
+21 silly publish   dependencies:
+21 silly publish    { async: '^1.5.0',
+21 silly publish      lodash: '^3.10.1',
+21 silly publish      pkginfo: '^0.3.1',
+21 silly publish      semver: '^5.0.3',
+21 silly publish      cookies: '^0.5.1',
+21 silly publish      passport: '^0.3.2',
+21 silly publish      'passport-saml': '^0.31.0' },
+21 silly publish   devDependencies:
+21 silly publish    { arrow: '^*',
+21 silly publish      grunt: '^0.4.5',
+21 silly publish      'grunt-appc-js': '^1.0.19',
+21 silly publish      'grunt-contrib-clean': '^0.7.0',
+21 silly publish      'grunt-contrib-jshint': '^1.1.0',
+21 silly publish      'grunt-mocha-istanbul': '^3.0.1',
+21 silly publish      istanbul: '^0.4.1',
+21 silly publish      mocha: '^2.3.4',
+21 silly publish      promise: '^7.1.1',
+21 silly publish      request: '^2.60.0',
+21 silly publish      should: '^8.0.2',
+21 silly publish      typescript: '^1.7.3' },
+21 silly publish   scripts: { test: 'grunt' },
+21 silly publish   readme: '# Appcelerator SAML\nAppcelerator SAML provides [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0) Autehntication for Appcelerator Arrow driven applications. \nThe module is tested and works with the following IDps : **Onelogin, Okta, Shibboleth, SimpleSAMLphp**. \n\n### The module uses\n* node [passport](http://passportjs.org/)\n* node [passport-saml](https://github.com/bergie/passport-saml)\n\n### Authentication flow\n\n*   User visits the application\n*   The appcelerator-saml module checks if the user is logged in\n*   If not authenticated, the user is redirected to loginUrl, which you have to set (see point 3.1.).\n*   From the login route the user is redirected to the Identity Provider\n    *   On success - the IDp returns the user to the callbaclUrl (see point 2.1. - configuration options)\n    *   On error - user is redirected to the callbackUrl as well\n*   appcelerator-saml grabs the data sent from the IDp, writes it and makes it accessable trough the application request object (see point 3.4.)\n    \n\n## 1.   Installation\n* Install the module\n    ``\n    > npm install appcelerator-saml       \n    ``\n*   Add ***APIKeyAuthPlugin*** authentication type in the configuration file `./conf/default.js`\n```\nAPIKeyAuthType: \'plugin\', // Modify the default \'APIKeyAuthType\', and set it to \'plugin\'\nAPIKeyAuthPlugin: \'appcelerator-saml\' \n```\n\nTypescript files and the tsconfig.json file, are not included with the node module.\nIf you want to use the typescript files, clone the repo.\n\n## 2.  Configuration\n Copy ``conf/example.config.js`` to you project\'s configuration folder, and rename the file to : \n ``appc.saml.default.js``.\n### 2.1.   Configuration options\n Set  the **privateCertLocation** and **certLocation** if you are going to use private key and certificate, to authenticate against the server.\n \n ```sh\n    //Application login Url\n    loginUrl: \'/saml/login\',\n    //The url, where data sent from the IDp will be handled\n    callbackUrl : \'/saml/response/callback\',\n    //optional : Location of private key file (relative to project root)\n    privateCertLocation : \'./pk/login.axway.com.pem\',\n    //optional : Location of certificat file (relative to project root)\n    certLocation : \'./pk/login.axway.com.crt\',\n    // Routes that don\'t require authentication\n    allowedPaths : [\'/saml/response/callback\', \'/saml/login\', \'/successed\'],\n    //resultObject : is the Object structure, that you application requires\n    //the object member values are the keys of the Object received from the IDp \n    resultObject : {\n        firstName : \'firstname\',\n        lastName : \'lastname\',\n        email : \'email\',\n        username : \'username\',\n        language : \'preferredLanguage\'\n    },\n    //passport-saml configuration object\n    passport: {\n        strategy: \'saml\',\n        saml: {\n            //Should be an absolute path\n            callbackUrl: \'https://localhost:8080/response/callback\',\n            entryPoint: \'https://idp.com/saml2/idp/SSOService.php\',\n            issuer: \'cloud:passport:saml\',\n            authnContext: \'http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows\',\n            logoutCallbackUrl: \'https://localhost:8080/saml/logout\'\n        }\n    }\n ```\n*   **loginUrl** - string - Path of the login Route\n*   **callbackUrl** - string - Where the user is redirected by the Identity Provider\n*   **privateCertLocation** - string - (optional) Location of private key file (relative to project root)  \n*   **certLocation** - string - (optional) Location of certificat file (relative to project root)\n*   **allowedPaths** - Array - (optional) Array of Routes that don\'t require authentication\n*   **passport** - passport-saml configuration object\n*   **resultObject** - Object - Maps the response Object of the IDP to your desired structure. Where the parameter values are the parameter keys in the IDP\'s response. eg.: The IDP returns an object like this \n    ```sh\n        {\n            identifier  : 1001,\n            firsNameOfUser : \'Name\',\n            surName : \'Othername\',\n            authenticationName : \'authname\'\n        }\n    ```\n    And the object structure that you want is :\n    ```sh\n        {\n            id  : 1001,\n            firstName : \'Name\',\n            lastName : \'Othername\',\n            username : \'authname\'\n        }\n    ```\n    So the **resultObject** should look like this :\n    ```sh\n        {\n            id  : \'identifier\',\n            firstName : \'firsNameOfUser\',\n            lastName : \'surName\',\n            username : \'authenticationName\'\n        }\n    ```\n    \n\n For more infromation on the passport object, check the documentation of the [passport-saml extension](https://github.com/bergie/passport-saml).\n\n## 3.  Usage\n \n Once set, appcelerator-saml checks if current user is authenticated, for all routes (except for the loginUrl). You can add exceptions ( routes / endpoints which unauthorized users can visit ). Just add paths to the `allowedPaths` Array. Don\'t forget to add loginUrl to it as well.\n \nAfter you set `"appc.saml.default.js"` file, and add **APIKeyAuthPlugin** to `./conf/default.js`, you have to set the application Routes, which are going to intercept the information sent by the IDp.\n\n### 3.1.    Setting a login route\nThis route should be the same, as the one you set as loginRoute in the module\'s configuration.\n\n```sh\nvar Arrow = require(\'arrow\');\n//Require the Module\nvar SamlAuth = require(\'appcelerator-saml\');\n//Instantiate the SamlAuth and pass a server instance to the constructor\nvar auth = new SamlAuth(Arrow);\n\nvar LoginRoute = Arrow.Router.extend({\n    name: \'login\',\n    path: \'/saml/login\',\n    method: \'GET\',\n    description: \'Application login route\',\n    action: auth.passport.authenticate(\'saml\',\n        {\n            failureRedirect: "/saml/login-error" // where the user gets redirected on errror\n        })\n        \n});\n\nmodule.exports = LoginRoute;\n```\nThe `auth.passport.authenticate` method redirects the user to the login page of the identity provider ( **entryPoint** ).\n\n### 3.2.    Setting a callback route\nThis route should match `callbackUrl` parameter from the config. This is where appcelerator-saml, grabs the response from the IDP and persists the data. You can later on access the data, trough the application\'s Request object.\n\n```sh\nvar Arrow = require(\'arrow\');\nvar SamlAuth = require(\'appcelerator-saml\');\nvar auth = new SamlAuth(Arrow);\n\nvar CallbackRoute = Arrow.Router.extend({\n    name: \'sso_callback\',\n    path: \'/saml/response/callback\',\n    method: \'POST\',\n    description: \'Authorization page\',\n    action: auth\n        .passport\n        .authenticate(\'saml\', {\n            successRedirect : \'/\', // Redirect user to this route on success\n            failureRedirect: \'/saml/login-error\', // Redirect on error\n        })\n}); \n\nmodule.exports = CallbackRoute;\n```\nThe `successRedirect` property of auth.passport.authenticate, is the route where the user is going to be redirected on success.\n\n### 3.3.    Authenticating with && without a certificate\nSet the privateCertLocation and certLocation (the location of the .pem and .crt files), to enable certificate authentication\n\n### 3.4.    Using the information sent from the server\nThe authentication information is accessable trough the Arrow\'s Request object\n\n    request.isAuthenticated() // returns wether the user is authenticated\n    request.user // returns user information object ( the one you set with resultObject )\n\nLet\'s create a api endpoint that returns information on currently logged user.\n```sh\n    var Arrow = require(\'arrow\');\n    \n    var UserAPI = Arrow.API.extend({\n    \tgroup: \'userapi\',\n    \tpath: \'/loggeduser\',\n    \tmethod: \'GET\',\n    \tdescription: \'API information about logged in user\',\n    \taction: function (req, resp, next) {\n            user_data = req.user\n    \t\tresp.stream(getLoggedinData, next);\n    \t}\n    });\n    \n    var user_data = {};\n    \n    function getLoggedinData(callback)\n    {\n    \tcallback(null,user_data);\n    }\n    \n    module.exports = UserAPI;\n    \n\n```\n\n\n    \n### 3.4.    Setting up a logout route\n```sh\nvar Arrow = require(\'arrow\');\n\nvar LogoutRoute = Arrow.Router.extend({\n    name: \'logout\',\n    path: \'/saml/logout\',\n    method: \'GET\',\n    description: \'Application logout route\',\n    action: function (request, response) {\n        request.logout();\n        response.redirect(\'/welcome\');\n    }\n\n});\n\n\nmodule.exports = LogoutRoute;\n```\n\n\n\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '881cb8480d49ef9a43d6749e24bc282bfd50f130',
+21 silly publish   bugs: { url: 'https://github.com/marinvvasilev/appcelerator-saml/issues' },
+21 silly publish   homepage: 'https://github.com/marinvvasilev/appcelerator-saml#readme',
+21 silly publish   _id: 'appcelerator-saml@0.6.0',
+21 silly publish   _shasum: 'c7b7bdba63cfd1428480c9a8da4bd4d7c536a62f',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 verbose stack Error: This package has been marked as private
+23 verbose stack Remove the 'private' field from the package.json to publish it.
+23 verbose stack     at publish_ (/usr/local/lib/node_modules/npm/lib/publish.js:101:15)
+23 verbose stack     at Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+23 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+23 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+23 verbose stack     at chain (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+23 verbose stack     at /usr/local/lib/node_modules/npm/lib/publish.js:73:5
+23 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+23 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:25:25)
+23 verbose stack     at /usr/local/lib/node_modules/npm/lib/cache.js:363:16
+23 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/write-file-atomic/index.js:50:11
+24 verbose cwd /Users/marinvasilev/Projects/apibuilder/appcelerator-saml
+25 error Darwin 16.7.0
+26 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+27 error node v6.10.2
+28 error npm  v3.10.10
+29 error This package has been marked as private
+29 error Remove the 'private' field from the package.json to publish it.
+30 error If you need help, you may report this error at:
+30 error     <https://github.com/npm/npm/issues>
+31 verbose exit [ 1, true ]

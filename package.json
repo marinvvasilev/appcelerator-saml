@@ -7,7 +7,6 @@
         "type": "git",
         "url": "https://github.com/marinvvasilev/appcelerator-saml"
     },
-    "private": true,
     "keywords": [
         "appcelerator",
         "apibuilder",
