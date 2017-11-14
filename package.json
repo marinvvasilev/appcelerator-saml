@@ -5,17 +5,18 @@
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "https://git.ecd.axway.int/mvasilev/arrow_cloud_portal.git"
+        "url": "https://github.com/marinvvasilev/appcelerator-saml"
     },
     "private": true,
     "keywords": [
         "appcelerator",
+        "apibuilder",
         "arrow",
         "saml",
         "authentication"
     ],
     "author": "Marin Vasilev",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "dependencies": {
         "async": "^1.5.0",
         "lodash": "^3.10.1",
