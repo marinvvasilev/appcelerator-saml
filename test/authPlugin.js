@@ -1,4 +1,5 @@
 /* global Arrow, connector, server */
+/* jshint expr:true */
 var base = require('./_init'),
     should = require('should'),
     assert = require('assert'),

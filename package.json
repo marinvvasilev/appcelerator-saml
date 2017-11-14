@@ -1,6 +1,6 @@
 {
     "name": "appcelerator-saml",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "Appcelerator Arrow authentication using SAML strategy",
     "main": "index.js",
     "repository": {
@@ -23,14 +23,14 @@
         "semver": "^5.0.3",
         "cookies": "^0.5.1",
         "passport": "^0.3.2",
-        "passport-saml": "^0.15.0"
+        "passport-saml": "^0.31.0"
     },
     "devDependencies": {
         "arrow": "^*",
         "grunt": "^0.4.5",
         "grunt-appc-js": "^1.0.19",
         "grunt-contrib-clean": "^0.7.0",
-        "grunt-contrib-jshint": "^0.10.0",
+        "grunt-contrib-jshint": "^1.1.0",
         "grunt-mocha-istanbul": "^3.0.1",
         "istanbul": "^0.4.1",
         "mocha": "^2.3.4",

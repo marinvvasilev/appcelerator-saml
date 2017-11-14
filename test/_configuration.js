@@ -26,14 +26,20 @@ describe('model/Configuration', function() {
             'email': 'name@domain.com',
             'firstname': 'Foo',
             'preferredLanguage': 'en',
-            'lastname': 'Barry'
+            'lastname': 'Barry',
+            'nameID': 'fooID',
+            'nameIDFormat': 'fooFormat'
         };
         var resultObject = {
             'username': 'sampleStringUID',
             'email': 'name@domain.com',
             'firstName': 'Foo',
             'language': 'en',
-            'lastName': 'Barry'
+            'lastName': 'Barry',
+            'saml': {
+                'nameID': 'fooID',
+                'nameIDFormat': 'fooFormat'
+            }
         };
         var result = Conf.createResultObject(profile, auth.config);
         (result).should.be.eql(resultObject);
