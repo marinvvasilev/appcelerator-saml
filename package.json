@@ -7,6 +7,13 @@
         "type": "git",
         "url": "https://github.com/appcelerator/appcelerator-saml"
     },
+    "files": [
+        "lib",
+        "conf",
+        "README.md",
+        "LICENSE",
+        "index.js"
+    ],
     "keywords": [
         "appcelerator",
         "apibuilder",
@@ -17,7 +24,6 @@
     "author": "Marin Vasilev",
     "license": "Apache-2.0",
     "dependencies": {
-        "grunt-cli": "^0.1.13",
         "passport": "^0.3.2",
         "passport-saml": "^0.31.0"
     },
@@ -26,6 +32,7 @@
         "async": "^1.5.0",
         "grunt": "^0.4.5",
         "grunt-appc-js": "^1.0.19",
+        "grunt-cli": "^0.1.13",
         "grunt-contrib-clean": "^0.7.0",
         "grunt-contrib-jshint": "^1.1.0",
         "grunt-mocha-istanbul": "^3.0.1",
