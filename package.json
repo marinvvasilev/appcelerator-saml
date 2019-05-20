@@ -1,6 +1,6 @@
 {
     "name": "appcelerator-saml",
-    "version": "0.7.0",
+    "version": "0.6.1",
     "description": "Appcelerator Arrow authentication using SAML strategy",
     "main": "index.js",
     "repository": {
