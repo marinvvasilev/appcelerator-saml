@@ -1,6 +1,5 @@
 var passport = require('passport');
 var SamlStrategy = require('passport-saml').Strategy;
-var Cookies = require("cookies");
 var fs = require('fs');
 
 //Lib imports
@@ -12,8 +11,6 @@ export class Authentication {
     public server;
     //Configuration Object
     public config: ConfigurationObject;
-    private _request: Object;
-    private _response: Object;
     private _passport;
 
     constructor(server, config) {

@@ -5,7 +5,7 @@
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/marinvvasilev/appcelerator-saml"
+        "url": "https://github.com/appcelerator/appcelerator-saml"
     },
     "keywords": [
         "appcelerator",
@@ -17,16 +17,13 @@
     "author": "Marin Vasilev",
     "license": "Apache-2.0",
     "dependencies": {
-        "async": "^1.5.0",
-        "lodash": "^3.10.1",
-        "pkginfo": "^0.3.1",
-        "semver": "^5.0.3",
-        "cookies": "^0.5.1",
+        "grunt-cli": "^0.1.13",
         "passport": "^0.3.2",
         "passport-saml": "^0.31.0"
     },
     "devDependencies": {
-        "arrow": "^*",
+        "arrow": "rdpp-v3staging",
+        "async": "^1.5.0",
         "grunt": "^0.4.5",
         "grunt-appc-js": "^1.0.19",
         "grunt-contrib-clean": "^0.7.0",
@@ -34,12 +31,12 @@
         "grunt-mocha-istanbul": "^3.0.1",
         "istanbul": "^0.4.1",
         "mocha": "^2.3.4",
-        "promise": "^7.1.1",
         "request": "^2.60.0",
-        "should": "^8.0.2",
-        "typescript": "^1.7.3"
+        "typescript": "^1.7.3",
+        "should": "^8.0.2"
     },
     "scripts": {
-        "test": "grunt"
+        "build:dist": "tsc",
+        "build": "tsc && grunt"
     }
 }

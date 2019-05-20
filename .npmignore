@@ -5,3 +5,6 @@ coverage
 tsc
 tscconfig.json
 .git
+test
+Gruntfile.js
+appc.json
