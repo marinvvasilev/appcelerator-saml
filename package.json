@@ -28,7 +28,7 @@
         "passport-saml": "^0.31.0"
     },
     "devDependencies": {
-        "arrow": "rdpp-v3staging",
+        "arrow": "^3.0.0",
         "async": "^1.5.0",
         "grunt": "^0.4.5",
         "grunt-appc-js": "^1.0.19",
