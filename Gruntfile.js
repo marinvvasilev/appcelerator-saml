@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-    
+
     // Project configuration.
     grunt.initConfig({
         mocha_istanbul: {
@@ -20,12 +20,12 @@ module.exports = function(grunt) {
         jshint: {
             options: {
                 node: true,
-				globals: {
-					'before': false,
-					'after': false
-				}
+                globals: {
+                    'before': false,
+                    'after': false
+                }
             },
-            src: ['lib/**/*.js', 'test/**/*.js']
+            src: ['test/**/*.js']
         },
         clean: ['tmp']
     });

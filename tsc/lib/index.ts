@@ -1,8 +1,5 @@
 /// <reference path="../d.ts/require.d.ts" />
 
-var Cookies = require("cookies")
-var fs = require('fs');
-
 //Lib imports
 import {Authentication} from './Authentication';
 import {ConfigurationObject} from './model/Configuration';
@@ -24,7 +21,7 @@ export class SamlAuth {
         this.auth = dispatcher.getInstanceOf('Authentication');
         this.passport = this.auth.passport;
     }
-    
+
     /**
      * Get an instance of the dispatcher
      */
@@ -37,16 +34,15 @@ export class SamlAuth {
      * called by the server before calling validateRequest to determine if you want
      * to require authentication for this url
      */
-    public matchURL(request) {
+    public matchURL() {
         return true;
     }
-    
+
     /**
      * called by the server to request validation of the incoming request. return true if
      * a valid request, return false (or undefined) to deny the request
      */
-    public validateRequest(request, response) {
-        var cookies = new Cookies(request, response);
+    public validateRequest(request) {
         if (!request.isAuthenticated()) {
             //In case user wants to log in
             return this._authenticateRoute(request);
@@ -54,9 +50,9 @@ export class SamlAuth {
             return true;
         }
     }
-    
+
     /**
-     * Checks if current route should be authenticated, based on the 
+     * Checks if current route should be authenticated, based on the
      * the module configuration
      */
     private _authenticateRoute(request) {
